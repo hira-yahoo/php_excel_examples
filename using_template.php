@@ -9,7 +9,7 @@ $excel = $reader->load("template.xlsx");
 $writer = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
 
 $sheet = $excel->getActiveSheet();//有効になっているシートを代入
-$sheet->setCellValue('A2', '試しに上書き');//A2のセルにこんにちは！という値を入力
+$sheet->setCellValue('A2', isset($_POST['name']) ? $_POST['name'].'さん' : '名無しさん'); //A2のセルに名前を入力
 
 $file_name = "template_output.xlsx"; //ダウンロードさせるファイル名
 
